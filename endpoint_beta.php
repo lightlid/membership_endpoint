@@ -142,7 +142,7 @@ add_action( 'rest_api_init', function () {
 				},
 				'required' => true
 			  ),
-			 'course' => array('required' => true)
+			 'plan' => array('required' => true)
 		),
 		'permission_callback' => function () {
 		  return current_user_can( 'administrator' );
