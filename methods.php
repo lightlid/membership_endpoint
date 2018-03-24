@@ -139,8 +139,8 @@ function renewal_membership($membership_id,$expire_date){
 }
 
 function renewal_existing_membership(WP_REST_Request $request){
-	//param = $membership_id,$course
-	$course_name = $request['course'];
+	//param = $membership_id,$plan
+	$plan_name = $request['plan'];
 	$user_id = $request['id'];
 	
 	$note = "";
@@ -173,13 +173,13 @@ function renewal_existing_membership(WP_REST_Request $request){
 					return get_post_meta($plan->id);
 				}
 				else{
-					$result = array('status'=>500,'message'=>"Can't renew membership under ".$course_name);
+					$result = array('status'=>500,'message'=>"Can't renew membership under ".$plan_name);
 					return $result;
 				}
 			}
 		}
 		else{
-			$result = array('status'=>500,'message'=>"Existing active membership under course ".$course_name);
+			$result = array('status'=>500,'message'=>"Existing active membership under plan ".$plan_name);
 			return $result;
 		}
 		
